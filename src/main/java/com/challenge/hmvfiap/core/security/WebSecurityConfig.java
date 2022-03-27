@@ -2,7 +2,7 @@ package com.challenge.hmvfiap.core.security;
 
 import com.challenge.hmvfiap.core.filter.JwtTokenFilter;
 import com.challenge.hmvfiap.domain.service.JwtTokenService;
-import com.challenge.hmvfiap.domain.service.AppUserService;
+import com.challenge.hmvfiap.domain.service.UserService;
 import com.challenge.hmvfiap.domain.service.LoginService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -23,7 +23,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final AppUserService appUserService;
+    private final UserService userService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final JwtTokenService jwtTokenService;
     private final LoginService loginService;
@@ -33,11 +33,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors().and().csrf().disable().headers().frameOptions().sameOrigin().and().authorizeRequests()
                 .antMatchers("/api/registration/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/login/**").permitAll()
-                //.antMatchers(HttpMethod.POST, "/api/triage/**").permitAll()
                 .anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().addFilterBefore(
                         new JwtTokenFilter(jwtTokenService, loginService), UsernamePasswordAuthenticationFilter.class);
-
     }
 
     @Bean
@@ -56,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         DaoAuthenticationProvider provider =
                 new DaoAuthenticationProvider();
         provider.setPasswordEncoder(bCryptPasswordEncoder);
-        provider.setUserDetailsService(appUserService);
+        provider.setUserDetailsService(userService);
         return provider;
     }
 

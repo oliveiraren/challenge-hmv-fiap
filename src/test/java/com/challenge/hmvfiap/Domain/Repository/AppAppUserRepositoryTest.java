@@ -1,8 +1,8 @@
 package com.challenge.hmvfiap.Domain.Repository;
 
-import com.challenge.hmvfiap.domain.entity.User;
+import com.challenge.hmvfiap.domain.entity.AppUser;
 import com.challenge.hmvfiap.domain.enums.UserRole;
-import com.challenge.hmvfiap.domain.repository.UserRepository;
+import com.challenge.hmvfiap.domain.repository.AppUserRepository;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-public class UserRepositoryTest {
+public class AppAppUserRepositoryTest {
 
     @Autowired
     private DataSource dataSource;
@@ -26,43 +26,43 @@ public class UserRepositoryTest {
     @Autowired
     private EntityManager entityManager;
     @Autowired
-    private UserRepository userRepository;
+    private AppUserRepository appUserRepository;
 
-    private User user;
+    private AppUser appUser;
 
     @BeforeEach
     public void setup() {
-        user = new User();
+        appUser = new AppUser();
     }
 
     @Test
     public void shouldAddAnUser(){
-        userRepository.save(user);
-        assertNotNull(user.getId());
+        appUserRepository.save(appUser);
+        assertNotNull(appUser.getId());
     }
 
     @Test
     public void ShouldFetchAnUser() {
-        userRepository.save(user);
-        Optional<User> userDb = userRepository.findById(user.getId());
+        appUserRepository.save(appUser);
+        Optional<AppUser> userDb = appUserRepository.findById(appUser.getId());
         assertTrue(userDb.isPresent());
     }
 
     @Test
     public void ShouldDeleteAnUser() {
-        userRepository.save(user);
-        assertFalse(userRepository.findAll().isEmpty());
-        userRepository.delete(user);
-        assertTrue(userRepository.findAll().isEmpty());
+        appUserRepository.save(appUser);
+        assertFalse(appUserRepository.findAll().isEmpty());
+        appUserRepository.delete(appUser);
+        assertTrue(appUserRepository.findAll().isEmpty());
     }
 
     @Test
     public void ShouldUpdateAnUser() {
-        userRepository.save(user);
-        user.setUserRole(UserRole.USER);
-        userRepository.save(user);
-        Optional<User> userDb = userRepository.findById(user.getId());
+        appUserRepository.save(appUser);
+        appUser.setUserRole(UserRole.USER);
+        appUserRepository.save(appUser);
+        Optional<AppUser> userDb = appUserRepository.findById(appUser.getId());
         assertTrue(userDb.isPresent());
-        assertEquals(user.getUserRole(), userDb.get().getUserRole());
+        assertEquals(appUser.getUserRole(), userDb.get().getUserRole());
     }
 }

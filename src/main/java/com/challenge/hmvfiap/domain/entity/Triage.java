@@ -18,18 +18,24 @@ public class Triage {
 
     private Boolean pain;
 
-    private short painLevel;
+    private int painLevel;
 
+    @Enumerated(EnumType.STRING)
     private PainSite painSite;
 
+    @Enumerated(EnumType.STRING)
     private PainCauses painCauses;
 
+    @Enumerated(EnumType.STRING)
     private PainFrequency painFrequency;
 
+    @Enumerated(EnumType.STRING)
     private PainActivities painActivities;
 
+    @Enumerated(EnumType.STRING)
     private PainDuration painDuration;
 
+    @Enumerated(EnumType.STRING)
     private UrgencyRank urgencyRank;
 
     private LocalDateTime triageDateTime;

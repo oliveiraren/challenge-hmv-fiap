@@ -1,7 +1,7 @@
 package com.challenge.hmvfiap.api.controller;
 
-import com.challenge.hmvfiap.api.dto.TriageInputDTO;
 import com.challenge.hmvfiap.api.dto.TriageOutputDTO;
+import com.challenge.hmvfiap.api.dto.TriageInputDTO;
 import com.challenge.hmvfiap.domain.service.TriageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

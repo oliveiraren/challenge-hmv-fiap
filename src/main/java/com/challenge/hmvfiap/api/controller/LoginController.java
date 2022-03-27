@@ -1,8 +1,8 @@
 package com.challenge.hmvfiap.api.controller;
 
-import com.challenge.hmvfiap.domain.entity.User;
 import com.challenge.hmvfiap.api.dto.JwtTokenDTO;
 import com.challenge.hmvfiap.api.dto.LoginInputDTO;
+import com.challenge.hmvfiap.domain.entity.AppUser;
 import com.challenge.hmvfiap.domain.service.LoginService;
 import com.challenge.hmvfiap.domain.service.JwtTokenService;
 import lombok.AllArgsConstructor;
@@ -35,8 +35,8 @@ public class LoginController {
         Authentication authenticate = authenticationManager.authenticate(authentication);
         String token = jwtTokenService.geraToken(authenticate);
         Long id = jwtTokenService.pegarIdUsuario(token);
-        User user = loginService.buscarPorId(id);
-        String firstName = user.getFullName().split(" ")[0];
-        return ResponseEntity.ok(new JwtTokenDTO(token, "Bearer", user.getId(), firstName, user.getEmail()));
+        AppUser appUser = loginService.buscarPorId(id);
+        String firstName = appUser.getFullName().split(" ")[0];
+        return ResponseEntity.ok(new JwtTokenDTO(token, "Bearer", appUser.getId(), firstName, appUser.getEmail()));
     }
 }

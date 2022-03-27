@@ -1,13 +1,13 @@
 package com.challenge.hmvfiap.domain.service;
 
+import com.challenge.hmvfiap.domain.entity.UserHealthData;
+import com.challenge.hmvfiap.domain.enums.UrgencyRank;
+import com.challenge.hmvfiap.domain.repository.TriageRepository;
+import com.challenge.hmvfiap.domain.repository.UserHealthDataRepository;
 import com.challenge.hmvfiap.api.dto.TriageInputDTO;
 import com.challenge.hmvfiap.api.dto.TriageOutputDTO;
 import com.challenge.hmvfiap.domain.entity.Triage;
-import com.challenge.hmvfiap.domain.entity.UserHealthData;
-import com.challenge.hmvfiap.domain.enums.UrgencyRank;
 import com.challenge.hmvfiap.helper.RankUrgencyHelper;
-import com.challenge.hmvfiap.domain.repository.TriageRepository;
-import com.challenge.hmvfiap.domain.repository.UserHealthDataRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
