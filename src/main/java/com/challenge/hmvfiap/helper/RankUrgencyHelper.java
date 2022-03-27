@@ -14,7 +14,7 @@ public class RankUrgencyHelper {
         UrgencyRank urgencyRank;
 
         if(isBetween(painLevel, 9,10))
-            urgencyRank = UrgencyRank.EMERGENTE;
+            urgencyRank = UrgencyRank.EMERGENCIA;
         else if(isBetween(painLevel, 7,8))
             urgencyRank = UrgencyRank.MUITO_URGENTE;
         else if(isBetween(painLevel, 5,6))

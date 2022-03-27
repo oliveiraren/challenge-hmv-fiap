@@ -25,7 +25,7 @@ public class RankUrgencyHelperTest {
     public void shouldReturnEmergente(){
         triageInputDTO.setPainLevel((short)9);
         urgencyRank = rankUrgencyHelper.Rank(triageInputDTO);
-        assertEquals(urgencyRank, UrgencyRank.EMERGENTE);
+        assertEquals(urgencyRank, UrgencyRank.EMERGENCIA);
     }
 
     @Test
