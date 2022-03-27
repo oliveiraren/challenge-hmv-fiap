@@ -1,11 +1,9 @@
 package com.challenge.hmvfiap.domain.entity;
 
 import com.challenge.hmvfiap.domain.enums.UserRole;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import org.hibernate.Hibernate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

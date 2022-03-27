@@ -32,8 +32,7 @@ public class Triage {
     @Enumerated(EnumType.STRING)
     private PainActivities painActivities;
 
-    @Enumerated(EnumType.STRING)
-    private PainDuration painDuration;
+    private Boolean painDuration;
 
     @Enumerated(EnumType.STRING)
     private UrgencyRank urgencyRank;

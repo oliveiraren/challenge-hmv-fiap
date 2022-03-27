@@ -1,9 +1,8 @@
 package com.challenge.hmvfiap.domain.service;
 
 import com.challenge.hmvfiap.domain.entity.AppUser;
-import com.challenge.hmvfiap.domain.repository.AppUserRepository;
 import com.challenge.hmvfiap.domain.entity.JwtToken;
-
+import com.challenge.hmvfiap.domain.repository.AppUserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

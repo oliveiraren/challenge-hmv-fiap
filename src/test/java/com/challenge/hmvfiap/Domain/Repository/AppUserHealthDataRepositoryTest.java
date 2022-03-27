@@ -2,12 +2,13 @@ package com.challenge.hmvfiap.Domain.Repository;
 
 import com.challenge.hmvfiap.domain.entity.UserHealthData;
 import com.challenge.hmvfiap.domain.repository.UserHealthDataRepository;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
@@ -15,6 +16,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
 @DataJpaTest
 public class AppUserHealthDataRepositoryTest {
 
@@ -35,7 +37,7 @@ public class AppUserHealthDataRepositoryTest {
     }
 
     @Test
-    public void shouldAddUserHealthData(){
+    public void shouldAddUserHealthData() {
         userHealthDataRepository.save(userHealthData);
         assertNotNull(userHealthData.getUserId());
     }

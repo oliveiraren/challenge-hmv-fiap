@@ -3,10 +3,9 @@ package com.challenge.hmvfiap.api.controller;
 import com.challenge.hmvfiap.api.dto.JwtTokenDTO;
 import com.challenge.hmvfiap.api.dto.LoginInputDTO;
 import com.challenge.hmvfiap.domain.entity.AppUser;
-import com.challenge.hmvfiap.domain.service.LoginService;
 import com.challenge.hmvfiap.domain.service.JwtTokenService;
+import com.challenge.hmvfiap.domain.service.LoginService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,11 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class LoginController {
 
-    @Autowired
     private AuthenticationManager authenticationManager;
-    @Autowired
     private JwtTokenService jwtTokenService;
-    @Autowired
     private LoginService loginService;
 
     @PostMapping

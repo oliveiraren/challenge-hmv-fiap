@@ -3,12 +3,14 @@ package com.challenge.hmvfiap.Domain.Repository;
 import com.challenge.hmvfiap.domain.entity.Triage;
 import com.challenge.hmvfiap.domain.enums.UrgencyRank;
 import com.challenge.hmvfiap.domain.repository.TriageRepository;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
@@ -16,25 +18,24 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
 @DataJpaTest
 public class TriageRepositoryTest {
-
     @Autowired
-    private DataSource dataSource;
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-    @Autowired
-    private EntityManager entityManager;
+    private TestEntityManager entityManager;
     @Autowired
     private TriageRepository triageRepository;
 
     private Triage triage;
 
     @BeforeEach
-    public void setup() { triage = new Triage(); }
+    public void setup() {
+        triage = new Triage();
+        triage.setUserId((long)1);
+    }
 
     @Test
-    public void shouldAddTriageRecord(){
+    public void shouldAddTriageRecord() {
         triageRepository.save(triage);
         assertNotNull(triage.getUserId());
     }

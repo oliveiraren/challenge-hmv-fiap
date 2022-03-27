@@ -3,12 +3,13 @@ package com.challenge.hmvfiap.Domain.Repository;
 import com.challenge.hmvfiap.domain.entity.AppUser;
 import com.challenge.hmvfiap.domain.enums.UserRole;
 import com.challenge.hmvfiap.domain.repository.AppUserRepository;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.persistence.EntityManager;
 import javax.sql.DataSource;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@RunWith(SpringRunner.class)
 @DataJpaTest
 public class AppAppUserRepositoryTest {
 
@@ -36,7 +38,7 @@ public class AppAppUserRepositoryTest {
     }
 
     @Test
-    public void shouldAddAnUser(){
+    public void shouldAddAnUser() {
         appUserRepository.save(appUser);
         assertNotNull(appUser.getId());
     }
