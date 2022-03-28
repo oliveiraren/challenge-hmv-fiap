@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "api/")
-public class LoginTestController {
+public class TestaLoginController {
 
     @GetMapping("testa-login")
     public String login() {
