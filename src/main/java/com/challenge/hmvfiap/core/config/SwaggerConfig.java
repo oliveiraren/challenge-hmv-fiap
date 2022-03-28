@@ -14,15 +14,15 @@ import java.util.Collections;
 public class SwaggerConfig {
 
     @Bean
-    public Docket swagger() {
+    public Docket swagger(){
         return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.ant("/**"))
                 .build();
     }
 
-    private ApiInfo apiInfo() {
+    private ApiInfo apiInfo(){
         return
-                new ApiInfo("Challenge HMV - Swagger", "1.0", null, null, null, null, null, Collections.emptyList());
+        new ApiInfo("Challenge HMV - Swagger", "1.0", null, null, null, null, null, Collections.emptyList());
     }
 }
