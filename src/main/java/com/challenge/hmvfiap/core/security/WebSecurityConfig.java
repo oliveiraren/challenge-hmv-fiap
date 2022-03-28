@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .headers().frameOptions().sameOrigin().and().authorizeRequests()
                 .antMatchers("/api/registration/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/login/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/test/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/triage/**").permitAll()
                 .anyRequest().authenticated().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().addFilterBefore(
